@@ -1,0 +1,16 @@
+.Submit,.FirstName,.LastName,.FileName,.Email{
+    display: grid;
+    margin: 1.5em auto 0.5em auto ;
+    width: 20vw;
+}
+Form{
+    padding: 2em 10vw; 
+}
+.title{
+    text-justify: center;
+}
+.Upload,.chooseFile{
+    display: grid;
+    margin: 1.5em auto 0.5em auto ;
+    width: 20vw;
+}

@@ -1,0 +1,18 @@
+.App{
+    background-image: url('../public/bg.jpg');
+    background-size: cover;
+    background-position: center; 
+  }
+.content{
+  width: 70%;
+  background-color: white;
+}
+.body{
+  display: flex;
+  margin: 15vh 10vw 15vh 5vw;  
+  justify-content: space-around;
+}
+.side{
+  width: 33vw;
+}
+

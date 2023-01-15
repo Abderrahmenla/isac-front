@@ -1,0 +1,10 @@
+.txt{
+    font-size: 0.2em;
+}
+.txt:hover {
+    text-decoration: underline; 
+}
+.SideBar{
+    width: 25vw;
+}
+

@@ -1,0 +1,23 @@
+
+h5{  
+font-size: 1.3em;
+  color: black;
+  font-family: fantasy;
+  text-align: center;
+  justify-content: center;
+}
+.head{
+    width : 75%;
+}
+.color-nav{
+    background-color: #4f73ff2e;
+    height:120px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.header-right{
+    justify-content: flex-start;
+}
+.logo{
+    height:100px;
+}

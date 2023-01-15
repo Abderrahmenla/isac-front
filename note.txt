@@ -1,0 +1,74 @@
+save to git project
+
+git add .
+git commit -m "houhou"
+git push
+
+
+
+open git 
+
+
+
+Open needed Firewall rules() ;    // (get protocol/port from URL, use ism fw api to add/delete rules)
+       start_xmlfile_download() // use curl ?
+
+       
+
+ if (NTP synchronized)
+           { 
+                 if TimeFromXmlFile > currentTime : schedule flashing version at TimeFromXmlFile and call flash_version
+           } 
+             else (set Status=WAIT For NTP)
+
+ if(feature enable) 
+{ 
+    if (WAN is UP) and (URL not empty) : call start_fu() ; else : set Status=DISABLED
+}
+else (feature disabled)  { stop timer , close firewall ? }
+
+----------------------------------------------
+startfu ()
+{ 
+    if (config_check = ok) {   // config_check() : URL valid, Timer not empty
+       Start periodic timer for check.
+       Open needed Firewall rules() ;    // (get protocol/port from URL, use ism fw api to add/delete rules)
+       start_xmlfile_download() // use curl ?
+       if (file_download ==success){
+          if(access_file()=OK )    //how to read the file!!
+           {
+        get_version_name();
+               if (new_version > current_version)
+               {           
+                    start version_download();  // same code as fu by tr69 or gui
+                    if (download version = success)
+                    {
+                         get Time from xml file(); 
+            if (NTP synchronized)
+           { 
+                 if TimeFromXmlFile > currentTime : schedule flashing version at TimeFromXmlFile and call flash_version
+           } 
+             else (set Status=WAIT For NTP)
+                    } 
+          else (set Status=download version failed)
+        }
+     }
+          else (set Status=file access error)
+      }
+      else (set Status=download file failed)
+}
+--------------------------------------------------
+flash_version() 
+{ 
+     send INTFSYSTEMEVENTS_EVENT_FIRMWARE_UPGRADE_START
+     fwupCheck(); fwupFlash();
+     if (flashing ok) :  send INTFSYSTEMEVENTS_EVENT_FIRMWARE_UPGRADE_START ; reboot.
+}
+
+onWanUp { check if (feature enable) and (URL not empty) call start_fu() }
+onWanDown  { if (feature enable) stop timer }
+onNTPSynch  { if (Wan is UP)
+            set timedatectl set-ntp true
+            if TimeFromXmlFile > currentTime : schedule flashing version at TimeFromXmlFile and call flash_version }
+
+}

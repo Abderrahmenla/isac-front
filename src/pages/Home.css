@@ -1,0 +1,31 @@
+.logos{
+    display: flex;
+    margin: 2vh 0;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.logo{
+    width: 20%;
+}
+.container{
+    padding:5% 5%;
+    font-family: Verdana, Arial, Tahoma, Serif;
+  }
+.main-info{
+    text-align: center;
+    font-size: 150%;
+    font-family: fantasy;
+}
+.organization{
+    text-align: center;
+    font-size: 120%;
+}
+.topics,.Laboratory{
+    text-align: left;
+    margin: 5vh auto;
+    font-size: 100%;
+}
+
+
