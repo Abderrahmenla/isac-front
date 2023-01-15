@@ -1,7 +1,6 @@
 {
   "name": "isca2022",
   "version": "0.1.0",
-  "proxy": "https://sarah-flask.herokuapp.com/",
   "private": true,
   "engines": {
     "node": "19.3.0"
