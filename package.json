@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "proxy": "https://sarah-flask.herokuapp.com/",
   "private": true,
+  "engines": {
+    "node": "19.3.0"
+  },
   "dependencies": {
     "@progress/kendo-file-saver": "^1.1.1",
     "@testing-library/jest-dom": "^5.16.5",
