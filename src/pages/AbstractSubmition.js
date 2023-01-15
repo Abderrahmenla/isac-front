@@ -15,7 +15,7 @@ function AbstractSubmission() {
 function Upload (e){
    const formData = new FormData();
   formData.append('file', file);
-fetch('http://localhost:5000/upload', {
+fetch('https://sarah-flask.herokuapp.com/upload', {
   method: 'POST',
   body: formData
 })

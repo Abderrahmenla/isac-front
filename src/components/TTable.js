@@ -16,7 +16,7 @@ const navigate= useNavigate()
     navigate('/Home');
   }
   const fetchData = () => {
-    fetch(`http://127.0.0.1:5000/Upload`)
+    fetch(`https://sarah-flask.herokuapp.com/Upload`)
     .then((response) => response.json())
     .then((actualData) => {
       setRows(actualData);
@@ -33,7 +33,7 @@ const download = async (e,x,y)=>{
   e.preventDefault()
   let name=x+y+'.pdf'
     api({
-      url:`http://127.0.0.1:5000/download/${name}/`,
+      url:`https://sarah-flask.herokuapp.com/download/${name}/`,
       method:"GET",
       responseType:'blob'
     }).then ((res)=>{
